@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Navbar from "./components/parts/Navbard";
+import FacturesTable from "./components/pages/factures/FacturesTable";
+import { Route, Routes } from "react-router-dom";
+import ArticlesTable from "./components/pages/articles/ArticlesTable";
+import OneArticle from "./components/pages/articles/OneArticle";
+import Home from "./components/parts/Home";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <div style={{ paddingTop: 30, paddingLeft: 50, paddingRight: 50 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/facture" element={<FacturesTable />} />
+          <Route path="/articlestable/:factureId" element={<ArticlesTable />} />
+          <Route
+            path="/onearticle/:factureId/:articleId"
+            element={<OneArticle />}
+          />
+        </Routes>
+      </div>
+    </>
   );
 }
 
