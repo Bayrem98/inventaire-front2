@@ -12,7 +12,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "reactstrap";
-import { faAdd } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
 
@@ -91,6 +91,10 @@ const FactureAdd = (props: FactureAddPropsType) => {
   //    setPrix(value);
   //  }
   // };
+
+  const handleDeleteArticle = (index: any) => {
+    setArticles([...articles.slice(0, index), ...articles.slice(index + 1)]);
+  };
 
   return (
     <>
@@ -263,6 +267,18 @@ const FactureAdd = (props: FactureAddPropsType) => {
                           ])
                         }
                       />
+                    </FormGroup>
+                    <FormGroup>
+                      <Button
+                        style={{
+                          backgroundColor: "red",
+                          color: "white",
+                          borderRadius: 10,
+                        }}
+                        onClick={() => handleDeleteArticle(index)}
+                      >
+                       <FontAwesomeIcon icon={faTrash} />
+                      </Button>
                     </FormGroup>
                   </div>
                 )}

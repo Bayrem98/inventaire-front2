@@ -41,7 +41,8 @@ export function getFacture(
 
 export function addFacture(facture: any, callback: () => void) {
   //var fn = [];
-  const qc = facture.articles.map((a:any) => {
+  const qc = facture.articles.map((a: any) => {
+ //   const prixut = a.prixut / a.qc;
     return {
       _id: `${uuidv4()}`,
       sub_article: Array.from({ length: a.qc }, (_, i) => i).map((l, i) => {
@@ -69,7 +70,11 @@ export function addFacture(facture: any, callback: () => void) {
     });
 }
 
-export function editFacture(factureId: string, facture: Facture, callback: () => void) {
+export function editFacture(
+  factureId: string,
+  facture: Facture,
+  callback: () => void
+) {
   axios
     .put(`http://localhost:5000/facture/${factureId}`, facture)
     .then(() => {

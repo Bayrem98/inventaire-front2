@@ -23,7 +23,7 @@ const OneArticle = (props: Props) => {
       setArticle(articlesWithId);
     });
   }, [factureId, articleId]);
-
+  
   console.log(article);
 
   return (

@@ -9,7 +9,6 @@ import FactureDelete from "./FactureDelete";
 import { Link } from "react-router-dom";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import FactureEdit from "./FactureEdit";
-import ExcelTable from "../../parts/ExcelTable";
 
 interface Props {}
 const FacturesTable = (props: Props) => {
@@ -75,7 +74,6 @@ const FacturesTable = (props: Props) => {
   ]);
  
   {factures.length > 0 && <ExcelTable excelData={excelData} />}
- 
   */
 
   return (
@@ -125,7 +123,7 @@ const FacturesTable = (props: Props) => {
                 <tr key={`${facture._id}-${index}`}>
                   <td>{facture.reference}</td>
                   <td>{facture.societe}</td>
-                  <td style={{ color: "#0e0e0ee7" }}>
+                  <td style={{ width: 99 }}>
                     {new Date(facture.date).toLocaleDateString("fr-CA")}
                   </td>
                   <td>{facture.categorie}</td>
@@ -160,13 +158,11 @@ const FacturesTable = (props: Props) => {
                         </Button>
                       </Link>
                       <FactureEdit
-                        key={facture._id}
                         facture={facture}
                         refresh={() => getFactures(null, setFactures)}
                       />
 
                       <FactureDelete
-                        key={facture._id}
                         facture={facture}
                         refresh={() => getFactures(null, setFactures)}
                       />
