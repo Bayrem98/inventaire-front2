@@ -3,7 +3,7 @@ import User from "../../@types/User";
 
 export function getUsers(callback: (data: User[]) => void) {
   axios
-    .get("http://localhost:5001/user", {
+    .get("http://localhost:5000/user", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("access_token")}`,
       },
@@ -18,7 +18,7 @@ export function getUsers(callback: (data: User[]) => void) {
 
 export function addUser(user: User, callback: () => void) {
   axios
-    .post("http://localhost:5001/user", user)
+    .post("http://localhost:5000/user", user)
     .then(() => {
       callback();
     })
@@ -29,7 +29,7 @@ export function addUser(user: User, callback: () => void) {
 
 export function editUsers(user: User, callback: () => void) {
   axios
-    .put(`http://localhost:5001/user/${user._id}`, user)
+    .put(`http://localhost:5000/user/${user._id}`, user)
     .then(() => {
       callback();
     })
@@ -40,7 +40,7 @@ export function editUsers(user: User, callback: () => void) {
 
 export function deleteUsers(user: User, callback: () => void) {
   axios
-    .delete(`http://localhost:5001/user/${user._id}`)
+    .delete(`http://localhost:5000/user/${user._id}`)
     .then(() => {
       callback();
     })
