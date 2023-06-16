@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
 function Login() {
   const [username, setUsername] = useState<string>("");
@@ -41,41 +42,58 @@ function Login() {
   };
 
   return (
-    <div style={{ paddingTop: 100 }}>
-      <div>
-        <h2>Login</h2>
-        <form onSubmit={(event) => handleLogin(event)}>
-          <div>
-            <label>Username:</label>
-            <input
+    <div
+      style={{
+        paddingTop: 300,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div style={{ backgroundColor: "#217575", width: 500, borderRadius: 50 }}>
+        <h2 style={{ color: "yellow", textAlign: "center" }}>Connecter</h2>
+        <Form onSubmit={(event) => handleLogin(event)}>
+          <FormGroup style={{ paddingLeft: 95 }}>
+            <Label style={{ color: "white" }}>Username</Label>
+            <Input
               type="text"
               value={username}
               onChange={handleUsernameChange}
+              style={{ width: 300 }}
             />
-          </div>
-          <div>
-            <label>Password:</label>
-            <input
+          </FormGroup>
+          <FormGroup style={{ paddingLeft: 95 }}>
+            <Label style={{ color: "white" }}>Password</Label>
+            <Input
               value={password}
               onChange={handlePasswordChange}
               type={passwordShown ? "text" : "password"}
+              style={{ width: 300 }}
             />
             <i
               style={{
-                color: "#b79e56",
-                height: 20,
-                width: 20,
+                color: "yellow",
                 cursor: "pointer",
+                position: "absolute",
+                left: 792,
+                top: 500,
               }}
               onClick={togglePasswordVisiblity}
             >
               {eye}
             </i>
-          </div>
-          <button type="submit" disabled={!username || !password}>
-            Submit
-          </button>
-        </form>
+          </FormGroup>
+          <FormGroup style={{ textAlign: "center" }}>
+            <Button
+              size="lg"
+              style={{ backgroundColor: "yellow", cursor: "pointer" }}
+              type="submit"
+              disabled={!username || !password}
+            >
+              <span style={{ color: "#217575" }}>Submit</span>
+            </Button>
+          </FormGroup>
+        </Form>
       </div>
     </div>
   );
