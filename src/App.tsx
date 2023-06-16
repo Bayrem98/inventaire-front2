@@ -5,7 +5,7 @@ import FacturesTable from "./components/pages/factures/FacturesTable";
 import { Route, Routes } from "react-router-dom";
 import ArticlesTable from "./components/pages/articles/ArticlesTable";
 import OneArticle from "./components/pages/articles/OneArticle";
-import Login from "./components/pages/Login";
+import Login from "./components/parts/Login";
 import UsersTable from "./components/pages/users/Users";
 
 function App() {

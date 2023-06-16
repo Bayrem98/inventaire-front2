@@ -1,20 +1,12 @@
-import React, { ChangeEvent, useState, useEffect } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import User from "../../@types/User";
-import { getUsers } from "../../actions/user/action";
-import Inscription from "./users/Inscription";
 
 function Login() {
-  const [users, setUsers] = useState<User[]>([]);
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [passwordShown, setPasswordShown] = useState(false);
-
-  useEffect(() => {
-    getUsers(setUsers); // aka setUsers(data)
-  }, []);
 
   const handleUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
@@ -30,11 +22,16 @@ function Login() {
       .then(({ data }) => {
         localStorage.setItem("access_token", data.access_token);
         window.location.reload();
+        navigateto();
         console.log(data);
       })
       .catch((event) => {
         console.log(event.response.data.message);
       });
+  };
+
+  const navigateto = () => {
+    window.location.replace("/facture");
   };
 
   const eye = <FontAwesomeIcon icon={faEye} />;
@@ -79,9 +76,6 @@ function Login() {
             Submit
           </button>
         </form>
-      </div>
-      <div>
-        <Inscription refresh={() => getUsers(setUsers)} />
       </div>
     </div>
   );

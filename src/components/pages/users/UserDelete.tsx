@@ -2,10 +2,8 @@ import { useState } from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
-import { FormattedMessage } from "react-intl";
 import User from "../../../@types/User";
 import { deleteUsers } from "../../../actions/user/action";
-
 
 interface UserDeletePropsType {
   user: User;
@@ -42,18 +40,14 @@ const UserDelete = ({ user, refresh }: UserDeletePropsType) => {
           className="bg-danger text-white"
           toggle={() => setIsOpened(!isOpened)}
         >
-          <FormattedMessage id="users.delete.dialog.title" />
+          Supprimer Utilisateur
         </ModalHeader>
-        <ModalBody>
-          <FormattedMessage id="users.delete.dialog.text" /> {user.username} ?
-        </ModalBody>
+        <ModalBody>Voulez-vous supprimer {user.username} ?</ModalBody>
         <ModalFooter>
           <Button color="danger" onClick={submit}>
-            <FormattedMessage id="button.confirm" />
+            Valider
           </Button>{" "}
-          <Button onClick={() => setIsOpened(false)}>
-            <FormattedMessage id="button.cancel" />
-          </Button>
+          <Button onClick={() => setIsOpened(false)}>Annuler</Button>
         </ModalFooter>
       </Modal>
     </>
