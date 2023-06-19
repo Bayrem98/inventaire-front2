@@ -15,10 +15,7 @@ const Navbar: React.FC = () => {
       style={{ position: "fixed", top: 0, width: "100%" }}
     >
       <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        {localStorage.getItem("access_token") ? (
+        {localStorage.getItem("access_token") && (
           <>
             <li>
               <a href="/facture">Factures</a>
@@ -26,18 +23,13 @@ const Navbar: React.FC = () => {
             <li>
               <a href="/users">Ajouter Utilisateur</a>
             </li>
+            <li onClick={logout}>
+              <a style={{ paddingLeft: 582 }} href="/">
+                Déconnexion
+              </a>
+            </li>
           </>
-        ) : (
-          <> </>
         )}
-
-        <li onClick={logout}>
-          {localStorage.getItem("access_token") ? (
-            <a href="/">Déconnexion</a>
-          ) : (
-            <></>
-          )}
-        </li>
       </ul>
     </div>
   );

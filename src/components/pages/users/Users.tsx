@@ -31,7 +31,7 @@ const UsersTable = (props: Props) => {
           <thead>
             <tr>
               <th style={{ color: "#0e0e0ee7", backgroundColor: "lightgray" }}>
-                Username
+                Nom d'utilisateur
               </th>
               <th
                 style={{
@@ -76,7 +76,7 @@ const UsersTable = (props: Props) => {
                 >
                   <FontAwesomeIcon icon={faBoxOpen} size="4x" />
                   <br />
-                  Pas de données...
+                  Pas des données...
                 </td>
               </tr>
             )}

@@ -44,17 +44,17 @@ function Login() {
   return (
     <div
       style={{
-        paddingTop: 300,
+        paddingTop: 250,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
       <div style={{ backgroundColor: "#217575", width: 500, borderRadius: 50 }}>
-        <h2 style={{ color: "yellow", textAlign: "center" }}>Connecter</h2>
+        <h2 style={{ color: "yellow", textAlign: "center" }}>Connecter-vous</h2>
         <Form onSubmit={(event) => handleLogin(event)}>
           <FormGroup style={{ paddingLeft: 95 }}>
-            <Label style={{ color: "white" }}>Username</Label>
+            <Label style={{ color: "white" }}>Nom d'utilisateur</Label>
             <Input
               type="text"
               value={username}
@@ -63,7 +63,7 @@ function Login() {
             />
           </FormGroup>
           <FormGroup style={{ paddingLeft: 95 }}>
-            <Label style={{ color: "white" }}>Password</Label>
+            <Label style={{ color: "white" }}>Mot de passe</Label>
             <Input
               value={password}
               onChange={handlePasswordChange}
@@ -76,7 +76,7 @@ function Login() {
                 cursor: "pointer",
                 position: "absolute",
                 left: 792,
-                top: 500,
+                top: 450,
               }}
               onClick={togglePasswordVisiblity}
             >
@@ -90,7 +90,7 @@ function Login() {
               type="submit"
               disabled={!username || !password}
             >
-              <span style={{ color: "#217575" }}>Submit</span>
+              <span style={{ color: "#217575" }}>Valider</span>
             </Button>
           </FormGroup>
         </Form>

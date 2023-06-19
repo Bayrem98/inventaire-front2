@@ -70,7 +70,7 @@ const Inscription = (props: UserAddPropsType) => {
         <ModalBody>
           <Form>
             <FormGroup>
-              <Label for="username">Username</Label>
+              <Label for="username">Nom d'utilisateur</Label>
               <Input
                 value={username}
                 id="username"
@@ -80,7 +80,7 @@ const Inscription = (props: UserAddPropsType) => {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="password">Password</Label>
+              <Label for="password">Mot de passe</Label>
               <Input
                 value={password}
                 id="password"
