@@ -114,7 +114,7 @@ const ArticleEdit = ({ article, refresh }: ArticleEditPropsType) => {
                 id="designation"
                 name="designation"
                 type="text"
-                onChange={(e) => setDesignation(e.target.value)}
+                onChange={(event) => setDesignation(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -124,7 +124,7 @@ const ArticleEdit = ({ article, refresh }: ArticleEditPropsType) => {
                 id="marque"
                 name="marque"
                 type="text"
-                onChange={(e) => setMarque(e.target.value)}
+                onChange={(event) => setMarque(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -134,7 +134,7 @@ const ArticleEdit = ({ article, refresh }: ArticleEditPropsType) => {
                 id="numserie"
                 name="numserie"
                 type="text"
-                onChange={(e) => setNumserie(e.target.value)}
+                onChange={(event) => setNumserie(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -144,7 +144,7 @@ const ArticleEdit = ({ article, refresh }: ArticleEditPropsType) => {
                 id="observation"
                 name="observation"
                 type="text"
-                onChange={(e) => setObservation(e.target.value)}
+                onChange={(event) => setObservation(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -154,7 +154,7 @@ const ArticleEdit = ({ article, refresh }: ArticleEditPropsType) => {
                 id="code"
                 name="code"
                 type="text"
-                onChange={(e) => setCode(e.target.value)}
+                onChange={(event) => setCode(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -164,7 +164,7 @@ const ArticleEdit = ({ article, refresh }: ArticleEditPropsType) => {
                 id="affectation"
                 name="affectation"
                 type="text"
-                onChange={(e) => setAffectation(e.target.value)}
+                onChange={(event) => setAffectation(event.target.value)}
               />
             </FormGroup>
             <FormGroup>

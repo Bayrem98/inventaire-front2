@@ -95,7 +95,7 @@ const ArticleAdd = (props: ArticleAddPropsType) => {
                 id="designation"
                 name="designation"
                 type="text"
-                onChange={(e) => setDesignation(e.target.value)}
+                onChange={(event) => setDesignation(event.target.value)}
               />
               <Label for="designation">Désignation</Label>
             </FormGroup>
@@ -105,7 +105,7 @@ const ArticleAdd = (props: ArticleAddPropsType) => {
                 id="marque"
                 name="marque"
                 type="text"
-                onChange={(e) => setMarque(e.target.value)}
+                onChange={(event) => setMarque(event.target.value)}
               />
               <Label for="marque">Marque</Label>
             </FormGroup>
@@ -115,7 +115,7 @@ const ArticleAdd = (props: ArticleAddPropsType) => {
                 id="numserie"
                 name="numserie"
                 type="text"
-                onChange={(e) => setNumserie(e.target.value)}
+                onChange={(event) => setNumserie(event.target.value)}
               />
               <Label for="numserie">Numsérie</Label>
             </FormGroup>
@@ -125,7 +125,7 @@ const ArticleAdd = (props: ArticleAddPropsType) => {
                 id="observation"
                 name="observation"
                 type="text"
-                onChange={(e) => setObservation(e.target.value)}
+                onChange={(event) => setObservation(event.target.value)}
               />
               <Label for="observation">Observation</Label>
             </FormGroup>
@@ -135,7 +135,7 @@ const ArticleAdd = (props: ArticleAddPropsType) => {
                 id="code"
                 name="code"
                 type="text"
-                onChange={(e) => setCode(e.target.value)}
+                onChange={(event) => setCode(event.target.value)}
               />
               <Label for="code">Code</Label>
             </FormGroup>
@@ -145,7 +145,7 @@ const ArticleAdd = (props: ArticleAddPropsType) => {
                 id="affectation"
                 name="affectation"
                 type="text"
-                onChange={(e) => setAffectation(e.target.value)}
+                onChange={(event) => setAffectation(event.target.value)}
               />
               <Label for="affectation">Affectation</Label>
             </FormGroup>

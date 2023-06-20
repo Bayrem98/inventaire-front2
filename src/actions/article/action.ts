@@ -15,8 +15,8 @@ export function getArticles(
     .then(({ data }) => {
       callback(data);
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((event) => {
+      console.error(event);
     });
 }
 

@@ -80,8 +80,8 @@ export function editFacture(
     .then(() => {
       callback();
     })
-    .catch((error) => {
-      console.error(error);
+    .catch((event) => {
+      console.error(event);
     });
 }
 

@@ -11,8 +11,8 @@ export function getUsers(callback: (data: User[]) => void) {
     .then(({ data }) => {
       callback(data);
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((event) => {
+      console.error(event);
     });
 }
 
@@ -22,8 +22,8 @@ export function addUser(user: User, callback: () => void) {
     .then(() => {
       callback();
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((event) => {
+      console.error(event);
     });
 }
 
@@ -33,8 +33,8 @@ export function editUsers(user: User, callback: () => void) {
     .then(() => {
       callback();
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((event) => {
+      console.error(event);
     });
 }
 
@@ -44,7 +44,7 @@ export function deleteUsers(user: User, callback: () => void) {
     .then(() => {
       callback();
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((event) => {
+      console.error(event);
     });
 }
