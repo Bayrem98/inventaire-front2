@@ -17,8 +17,8 @@ const Home = () => {
     const file = event.target.files && event.target.files[0];
     const reader = new FileReader();
 
-    reader.onload = (e: ProgressEvent<FileReader>) => {
-      const binaryString = e.target?.result as string;
+    reader.onload = (event: ProgressEvent<FileReader>) => {
+      const binaryString = event.target?.result as string;
       const workbook = XLSX.read(binaryString, { type: "binary" });
       const worksheet = workbook.Sheets[workbook.SheetNames[0]];
       const data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });

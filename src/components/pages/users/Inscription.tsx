@@ -76,7 +76,7 @@ const Inscription = (props: UserAddPropsType) => {
                 id="username"
                 name="username"
                 type="text"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(event) => setUsername(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -86,7 +86,7 @@ const Inscription = (props: UserAddPropsType) => {
                 id="password"
                 name="password"
                 type="password"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(event) => setPassword(event.target.value)}
               />
             </FormGroup>
           </Form>

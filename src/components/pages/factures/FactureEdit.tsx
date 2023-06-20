@@ -108,7 +108,7 @@ const FactureEdit = ({ facture, refresh }: FactureEditPropsType) => {
                 id="etat"
                 name="etat"
                 type="select"
-                onChange={(e) => setEtat(e.target.value)}
+                onChange={(event) => setEtat(event.target.value)}
               >
                 {fields.map((f) => (
                   <option key={f.key} value={f.key}>

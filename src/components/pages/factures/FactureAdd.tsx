@@ -130,7 +130,7 @@ const FactureAdd = (props: FactureAddPropsType) => {
                 id="reference"
                 name="reference"
                 type="text"
-                onChange={(e) => setReference(e.target.value)}
+                onChange={(event) => setReference(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -140,7 +140,7 @@ const FactureAdd = (props: FactureAddPropsType) => {
                 id="societe"
                 name="societe"
                 type="text"
-                onChange={(e) => setSociete(e.target.value)}
+                onChange={(event) => setSociete(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -150,7 +150,7 @@ const FactureAdd = (props: FactureAddPropsType) => {
                 id="date"
                 name="date"
                 type="date"
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(event) => setDate(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -160,7 +160,7 @@ const FactureAdd = (props: FactureAddPropsType) => {
                 id="categorie"
                 name="categorie"
                 type="text"
-                onChange={(e) => setCategorie(e.target.value)}
+                onChange={(event) => setCategorie(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -170,7 +170,7 @@ const FactureAdd = (props: FactureAddPropsType) => {
                 id="fournisseur"
                 name="fournisseur"
                 type="text"
-                onChange={(e) => setFournisseur(e.target.value)}
+                onChange={(event) => setFournisseur(event.target.value)}
               />
             </FormGroup>
             <FormGroup>
@@ -180,7 +180,9 @@ const FactureAdd = (props: FactureAddPropsType) => {
                 id="quantite"
                 name="quantite"
                 type="number"
-                onChange={(e) => setQuantite(parseFloat(e.target.value))}
+                onChange={(event) =>
+                  setQuantite(parseFloat(event.target.value))
+                }
               />
             </FormGroup>
             <FormGroup>
@@ -190,7 +192,7 @@ const FactureAdd = (props: FactureAddPropsType) => {
                 id="prix"
                 name="prix"
                 type="number"
-                onChange={(e) => setPrix(parseFloat(e.target.value))}
+                onChange={(event) => setPrix(parseFloat(event.target.value))}
               />
             </FormGroup>
             <FormGroup>
@@ -200,7 +202,7 @@ const FactureAdd = (props: FactureAddPropsType) => {
                 id="etat"
                 name="etat"
                 type="select"
-                onChange={(e) => setEtat(e.target.value)}
+                onChange={(event) => setEtat(event.target.value)}
               >
                 {fields.map((f) => (
                   <option key={f.key} value={f.key}>
@@ -217,10 +219,10 @@ const FactureAdd = (props: FactureAddPropsType) => {
                       <Label>Désignation</Label>
                       <Input
                         value={article?.designation || ""}
-                        onChange={(e) =>
+                        onChange={(event) =>
                           setArticles([
                             ...articles.slice(0, index),
-                            { ...article, designation: e.target.value },
+                            { ...article, designation: event.target.value },
                             ...articles.slice(index + 1),
                           ])
                         }
@@ -231,10 +233,10 @@ const FactureAdd = (props: FactureAddPropsType) => {
                       <Input
                         type="text"
                         value={article?.marque || ""}
-                        onChange={(e) =>
+                        onChange={(event) =>
                           setArticles([
                             ...articles.slice(0, index),
-                            { ...article, marque: e.target.value },
+                            { ...article, marque: event.target.value },
                             ...articles.slice(index + 1),
                           ])
                         }
@@ -245,10 +247,10 @@ const FactureAdd = (props: FactureAddPropsType) => {
                       <Input
                         type="number"
                         value={article?.qc || ""}
-                        onChange={(e) =>
+                        onChange={(event) =>
                           setArticles([
                             ...articles.slice(0, index),
-                            { ...article, qc: parseInt(e.target.value) },
+                            { ...article, qc: parseInt(event.target.value) },
                             ...articles.slice(index + 1),
                           ])
                         }
@@ -259,10 +261,13 @@ const FactureAdd = (props: FactureAddPropsType) => {
                       <Input
                         type="number"
                         value={article?.prixut || ""}
-                        onChange={(e) =>
+                        onChange={(event) =>
                           setArticles([
                             ...articles.slice(0, index),
-                            { ...article, prixut: parseFloat(e.target.value) },
+                            {
+                              ...article,
+                              prixut: parseFloat(event.target.value),
+                            },
                             ...articles.slice(index + 1),
                           ])
                         }
@@ -277,7 +282,7 @@ const FactureAdd = (props: FactureAddPropsType) => {
                         }}
                         onClick={() => handleDeleteArticle(index)}
                       >
-                       <FontAwesomeIcon icon={faTrash} />
+                        <FontAwesomeIcon icon={faTrash} />
                       </Button>
                     </FormGroup>
                   </div>
