@@ -2,12 +2,13 @@ import React, { ChangeEvent, useState } from "react";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { Alert, Button, Form, FormGroup, Input, Label } from "reactstrap";
 
 function Login() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [passwordShown, setPasswordShown] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
@@ -16,6 +17,7 @@ function Login() {
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
+
   const handleLogin = (event: any) => {
     event.preventDefault();
     axios
@@ -26,8 +28,16 @@ function Login() {
         navigateto();
         console.log(data);
       })
-      .catch((event) => {
-        console.log(event.response.data.message);
+      .catch((error) => {
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.message
+        ) {
+          setErrorMessage(error.response.data.message); // Mise à jour du message d'erreur
+        } else {
+          setErrorMessage("Une erreur s'est produite. Veuillez réessayer."); // Message d'erreur par défaut
+        }
       });
   };
 
@@ -50,7 +60,16 @@ function Login() {
         alignItems: "center",
       }}
     >
-      <div style={{ backgroundColor: "#217575", width: 500, borderRadius: 50 }}>
+      <div style={{ backgroundColor: "#217575", width: 500, borderRadius: 20 }}>
+        <Alert
+          style={{ backgroundColor: "#217575", border: 0, borderRadius: 50 }}
+        >
+          {errorMessage && (
+            <div style={{ color: "red", textAlign: "center", marginTop: 10 }}>
+              {errorMessage}
+            </div>
+          )}
+        </Alert>
         <h2 style={{ color: "yellow", textAlign: "center" }}>Connecter-vous</h2>
         <Form onSubmit={(event) => handleLogin(event)}>
           <FormGroup style={{ paddingLeft: 95 }}>
@@ -76,7 +95,7 @@ function Login() {
                 cursor: "pointer",
                 position: "absolute",
                 left: 792,
-                top: 450,
+                top: 500,
               }}
               onClick={togglePasswordVisiblity}
             >
