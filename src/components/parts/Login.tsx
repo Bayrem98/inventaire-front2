@@ -65,7 +65,7 @@ function Login() {
           style={{ backgroundColor: "#217575", border: 0, borderRadius: 50 }}
         >
           {errorMessage && (
-            <div style={{ color: "red", textAlign: "center", marginTop: 10 }}>
+            <div style={{ color: "red", textAlign: "center" }}>
               {errorMessage}
             </div>
           )}

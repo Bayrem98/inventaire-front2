@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
               <a href="/users">Ajouter Utilisateur</a>
             </li>
             <li onClick={logout}>
-              <a style={{ paddingLeft: 582 }} href="/">
+              <a style={{ paddingLeft: 565 }} href="/">
                 Déconnexion
               </a>
             </li>
