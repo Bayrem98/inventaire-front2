@@ -15,8 +15,8 @@ export function getArticles(
     .then(({ data }) => {
       callback(data);
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
@@ -31,8 +31,8 @@ export function getArticle(id: string, callback: (data: Article) => void) {
       console.log(data);
       callback(data);
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
@@ -42,8 +42,8 @@ export function addArticle(article: Article, callback: () => void) {
     .then(() => {
       callback();
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
@@ -57,8 +57,8 @@ export function editedArticle(
     .then(() => {
       callback();
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
@@ -68,7 +68,7 @@ export function deleteArticle(article: Article, callback: () => void) {
     .then(() => {
       callback();
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }

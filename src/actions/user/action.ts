@@ -11,8 +11,8 @@ export function getUsers(callback: (data: User[]) => void) {
     .then(({ data }) => {
       callback(data);
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
@@ -22,29 +22,29 @@ export function addUser(user: User, callback: () => void) {
     .then(() => {
       callback();
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
-export function editUsers(user: User, callback: () => void) {
+export function editUser(user: User, callback: () => void) {
   axios
     .put(`http://localhost:5000/user/${user._id}`, user)
     .then(() => {
       callback();
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
-export function deleteUsers(user: User, callback: () => void) {
+export function deleteUser(user: User, callback: () => void) {
   axios
     .delete(`http://localhost:5000/user/${user._id}`)
     .then(() => {
       callback();
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }

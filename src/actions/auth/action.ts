@@ -14,8 +14,8 @@ export function login(
     .then(({ data }) => {
       callback(data);
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
       fallback();
     });
 }

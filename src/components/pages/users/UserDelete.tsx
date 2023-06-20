@@ -3,7 +3,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import User from "../../../@types/User";
-import { deleteUsers } from "../../../actions/user/action";
+import { deleteUser } from "../../../actions/user/action";
 
 interface UserDeletePropsType {
   user: User;
@@ -14,7 +14,7 @@ const UserDelete = ({ user, refresh }: UserDeletePropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   const submit = () => {
-    deleteUsers(user, () => {
+    deleteUser(user, () => {
       refresh();
       setIsOpened(false);
     });

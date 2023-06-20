@@ -96,7 +96,7 @@ const FacturesTable = (props: Props) => {
           }}
           type="text"
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={(event) => setFilter(event.target.value)}
           placeholder="Chercher..."
         />
       </div>

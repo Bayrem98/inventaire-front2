@@ -16,8 +16,8 @@ export function getFactures(
     .then(({ data }) => {
       callback(data);
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
@@ -34,8 +34,8 @@ export function getFacture(
     .then(({ data }) => {
       callback(data);
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
@@ -65,8 +65,8 @@ export function addFacture(facture: any, callback: () => void) {
     .then(() => {
       callback();
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
@@ -80,8 +80,8 @@ export function editFacture(
     .then(() => {
       callback();
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }
 
@@ -91,7 +91,7 @@ export function deleteFacture(facture: Facture, callback: () => void) {
     .then(() => {
       callback();
     })
-    .catch((event) => {
-      console.error(event);
+    .catch((error) => {
+      console.error(error);
     });
 }

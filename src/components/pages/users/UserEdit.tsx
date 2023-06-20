@@ -14,7 +14,7 @@ import {
   ModalHeader,
 } from "reactstrap";
 import User from "../../../@types/User";
-import { editUsers } from "../../../actions/user/action";
+import { editUser } from "../../../actions/user/action";
 
 interface UserEditPropsType {
   user: User;
@@ -35,7 +35,7 @@ const UserEdit = ({ user, refresh }: UserEditPropsType) => {
       username,
       password,
     };
-    editUsers(newUser, () => {
+    editUser(newUser, () => {
       refresh();
       setIsOpened(false);
       reset(newUser);
