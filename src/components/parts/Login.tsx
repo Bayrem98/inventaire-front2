@@ -2,7 +2,8 @@ import React, { ChangeEvent, useState } from "react";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import { Alert, Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { Alert } from "antd";
 
 function Login() {
   const [username, setUsername] = useState<string>("");
@@ -60,17 +61,16 @@ function Login() {
         alignItems: "center",
       }}
     >
-      <div style={{ backgroundColor: "#217575", width: 500, borderRadius: 20 }}>
-        <Alert
-          style={{ backgroundColor: "#217575", border: 0, borderRadius: 50 }}
-        >
-          {errorMessage && (
-            <div style={{ color: "red", textAlign: "center" }}>
-              {errorMessage}
-            </div>
-          )}
-        </Alert>
-        <h2 style={{ color: "yellow", textAlign: "center" }}>Connecter-vous</h2>
+      <div
+        className="card"
+        style={{ backgroundColor: "#217575", width: 500, borderRadius: 20 }}
+      >
+        <br />
+        {errorMessage && (
+          <Alert message="" description={errorMessage} type="error" showIcon />
+        )}
+
+        <h2 style={{ color: "yellow", textAlign: "center" }}>Connectez-vous</h2>
         <Form onSubmit={(event) => handleLogin(event)}>
           <FormGroup style={{ paddingLeft: 95 }}>
             <Label style={{ color: "white" }}>Nom d'utilisateur</Label>
@@ -94,8 +94,8 @@ function Login() {
                 color: "yellow",
                 cursor: "pointer",
                 position: "absolute",
-                left: 792,
-                top: 500,
+                left: 404,
+                top: 194,
               }}
               onClick={togglePasswordVisiblity}
             >

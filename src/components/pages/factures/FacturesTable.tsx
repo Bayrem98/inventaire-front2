@@ -9,6 +9,8 @@ import FactureDelete from "./FactureDelete";
 import { Link } from "react-router-dom";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import FactureEdit from "./FactureEdit";
+import { Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
 interface Props {}
 const FacturesTable = (props: Props) => {
@@ -82,6 +84,10 @@ const FacturesTable = (props: Props) => {
         className="d-flex justify-content-between"
         style={{ paddingTop: 80 }}
       >
+        <Avatar
+          style={{ backgroundColor: "#217575" }}
+          icon={<UserOutlined />}
+        />
         <h1>Factures</h1>
         <FactureAdd refresh={() => getFactures(null, setFactures)} />
       </div>

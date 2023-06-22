@@ -27,4 +27,8 @@
     font-size: 20px;
   }
 
-  
+  .card {
+    border-image: linear-gradient(green, red);
+    border-image-slice: 10;
+    border-image-outset: 15px; 
+  }

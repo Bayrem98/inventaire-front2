@@ -6,6 +6,8 @@ import User from "../../../@types/User";
 import { getUsers } from "../../../actions/user/action";
 import Inscription from "./Inscription";
 import UserDelete from "./UserDelete";
+import { Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
 interface Props {}
 
@@ -20,8 +22,12 @@ const UsersTable = (props: Props) => {
     <div>
       <div
         className="d-flex justify-content-between"
-        style={{ paddingTop: 150 }}
+        style={{ paddingTop: 80 }}
       >
+        <Avatar
+          style={{ backgroundColor: "#217575" }}
+          icon={<UserOutlined />}
+        />
         <h1>Tableau des Utilisateurs</h1>
         <Inscription refresh={() => getUsers(setUsers)} />
       </div>
