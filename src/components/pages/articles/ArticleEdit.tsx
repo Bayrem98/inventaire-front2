@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Article from "../../../@types/Article";
 import {
   Button,
   Form,
@@ -15,6 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { editedArticle } from "../../../actions/article/action";
 import { useParams } from "react-router-dom";
+import { Article } from "../../../@types/Article";
 
 interface ArticleEditPropsType {
   article: Article;
@@ -28,25 +28,19 @@ const ArticleEdit = ({ article, refresh }: ArticleEditPropsType) => {
   // form states
   const [designation, setDesignation] = useState<string>(article.designation);
   const [marque, setMarque] = useState<string>(article.marque);
-  const [numserie, setNumserie] = useState<string | undefined>(
-    article.numserie
-  );
-  const [observation, setObservation] = useState<string | undefined>(
-    article.observation
-  );
-  const [code, setCode] = useState<string | undefined>(article.code);
-  const [affectation, setAffectation] = useState<string | undefined>(
-    article.affectation
-  );
+  const [numserie, setNumserie] = useState<any>(article.numserie);
+  const [observation, setObservation] = useState<any>(article.observation);
+  const [code, setCode] = useState<any>(article.code);
+  const [affectation, setAffectation] = useState<any>(article.affectation);
   const [prixut, setPrixut] = useState<number>(article.prixut);
   const [qc, setQc] = useState<number>(article.qc);
-  const [qi, setQi] = useState<number | undefined>(article.qi);
-  const [ecart, setEcart] = useState<number | undefined>(article.ecart);
+  const [qi, setQi] = useState<any>(article.qi);
+  const [ecart, setEcart] = useState<any>(article.ecart);
 
-  
   const submit = () => {
     const artId = articleId;
-    const editArticle = {
+    const editArticle: Article = {
+      // Ajouter le type d'objet Article à editArticle
       _id: article._id,
       designation,
       marque,
@@ -59,13 +53,13 @@ const ArticleEdit = ({ article, refresh }: ArticleEditPropsType) => {
       qi,
       ecart,
     };
-
-    editedArticle(editArticle, artId!, () => {
-      console.log(editArticle);
-       refresh();
-      setIsOpened(false);
-      reset();
-    });
+    console.log(editArticle);
+    if (article._id) {
+      editedArticle(editArticle, artId!, () => {
+        setIsOpened(false);
+        reset();
+      });
+    }
   };
 
   const reset = () => {
@@ -174,7 +168,7 @@ const ArticleEdit = ({ article, refresh }: ArticleEditPropsType) => {
                 id="prixut"
                 name="prixut"
                 type="number"
-                onChange={(event) => setPrixut(parseInt(event.target.value))}
+                onChange={(event) => setPrixut(parseFloat(event.target.value))}
               />
             </FormGroup>
             <FormGroup>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Article from "../../../@types/Article";
 import { getArticle } from "../../../actions/article/action";
 import { ButtonGroup, Table } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -49,15 +48,15 @@ const OneArticle = (props: Props) => {
           <thead style={{ textAlign: "center" }}>
             <tr>
               <th>Désignation</th>
-              <th>N°Série</th>
               <th>Marque</th>
-              <th>QC</th>
-              <th>QI</th>
-              <th>Ecart</th>
+              <th>Quantité</th>
+              <th>Prix UT</th>
+              <th>N°Série</th>
               <th>Observation</th>
               <th>Code</th>
               <th>Affectation</th>
-              <th>Prix UT</th>
+              <th>QI</th>
+              <th>Ecart</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -66,14 +65,8 @@ const OneArticle = (props: Props) => {
               article.sub_article.map((a: any) => (
                 <tr key={a._id}>
                   <td>{a.designation}</td>
-                  <td>{a.numserie}</td>
                   <td>{a.marque}</td>
                   <td>1</td>
-                  <td>{a.qi}</td>
-                  <td>{a.ecart}</td>
-                  <td>{a.observation}</td>
-                  <td>{a.code}</td>
-                  <td>{a.affectation}</td>
                   <td>
                     {typeof a.prixut === "string"
                       ? parseFloat(a.prixut).toLocaleString("fr-FR", {
@@ -83,6 +76,12 @@ const OneArticle = (props: Props) => {
                           minimumFractionDigits: 3,
                         })}
                   </td>
+                  <td>{a.numserie}</td>
+                  <td>{a.observation}</td>
+                  <td>{a.code}</td>
+                  <td>{a.affectation}</td>
+                  <td>{a.qi}</td>
+                  <td>{a.ecart}</td>
                   <td>
                     <ButtonGroup>
                       <ArticleEdit

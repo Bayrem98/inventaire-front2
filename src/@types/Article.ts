@@ -1,4 +1,4 @@
-export default interface Article {
+export interface Article {
   _id?: string;
   designation: string;
   marque: string;

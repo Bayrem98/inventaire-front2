@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Article from "../../../@types/Article";
 import {
   Button,
   Form,

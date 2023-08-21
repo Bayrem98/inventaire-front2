@@ -42,7 +42,7 @@ export function getFacture(
 export function addFacture(facture: any, callback: () => void) {
   //var fn = [];
   const qc = facture.articles.map((a: any) => {
- //   const prixut = a.prixut / a.qc;
+    //   const prixut = a.prixut / a.qc;
     return {
       _id: `${uuidv4()}`,
       sub_article: Array.from({ length: a.qc }, (_, i) => i).map((l, i) => {
@@ -52,6 +52,12 @@ export function addFacture(facture: any, callback: () => void) {
           marque: a.marque,
           prixut: a.prixut,
           qc: 1,
+          numserie: a.numserie,
+          observation: a.observation,
+          code: a.code,
+          affectation: a.affectation,
+          qi: a.qi,
+          ecart: a.ecart,
         };
       }),
     };

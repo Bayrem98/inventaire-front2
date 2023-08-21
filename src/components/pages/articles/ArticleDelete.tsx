@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import Article from "../../../@types/Article";
 import { deleteArticle } from "../../../actions/article/action";
+import { Article } from "../../../@types/Article";
 
 interface ArticleDeletePropsType {
   article: Article;

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Article from "../../../@types/Article";
 import { addFacture } from "../../../actions/facture/action";
 import {
   Button,
@@ -15,6 +14,7 @@ import {
 import { faAdd, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
+import { Article } from "../../../@types/Article";
 
 interface FactureAddPropsType {
   refresh: () => void;

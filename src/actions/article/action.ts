@@ -1,5 +1,5 @@
 import axios from "axios";
-import Article from "../../@types/Article";
+import { Article } from "../../@types/Article";
 
 export function getArticles(
   query: { designation?: string; marque?: string } | null,

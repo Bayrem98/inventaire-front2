@@ -74,33 +74,38 @@ function Login() {
         <Form onSubmit={(event) => handleLogin(event)}>
           <FormGroup style={{ paddingLeft: 95 }}>
             <Label style={{ color: "white" }}>Nom d'utilisateur</Label>
+            <div className="d-flex justify-content-between">
             <Input
               type="text"
               value={username}
               onChange={handleUsernameChange}
               style={{ width: 300 }}
             />
+            </div>
           </FormGroup>
           <FormGroup style={{ paddingLeft: 95 }}>
             <Label style={{ color: "white" }}>Mot de passe</Label>
-            <Input
-              value={password}
-              onChange={handlePasswordChange}
-              type={passwordShown ? "text" : "password"}
-              style={{ width: 300 }}
-            />
-            <i
-              style={{
-                color: "yellow",
-                cursor: "pointer",
-                position: "absolute",
-                left: 404,
-                top: 194,
-              }}
-              onClick={togglePasswordVisiblity}
-            >
-              {eye}
-            </i>
+            <div className="d-flex justify-content-between">
+              <Input
+                value={password}
+                onChange={handlePasswordChange}
+                type={passwordShown ? "text" : "password"}
+                style={{ width: 300 }}
+              />
+              <Button
+                style={{
+                  color: "yellow",
+                  cursor: "pointer",
+                  position: "relative",
+                  right: 60,
+                  backgroundColor: "#217575",
+                  border: 0,
+                }}
+                onClick={togglePasswordVisiblity}
+              >
+                {eye}
+              </Button>
+            </div>
           </FormGroup>
           <FormGroup style={{ textAlign: "center" }}>
             <Button

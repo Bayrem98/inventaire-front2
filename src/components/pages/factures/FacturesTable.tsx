@@ -33,8 +33,9 @@ const FacturesTable = (props: Props) => {
   }
 
   const filteredFactures = useMemo(() => {
-    return factures.filter(
-      (facture) =>
+    return factures.filter((facture) => {
+      // Main properties filtering
+      const matchMainProperties =
         facture.reference
           .toString()
           .toLowerCase()
@@ -48,15 +49,25 @@ const FacturesTable = (props: Props) => {
           .toLowerCase()
           .includes(filter.toLowerCase()) ||
         new Date(facture.date)
-          .toLocaleDateString("fr-CA") // <-- Formatage de la date ici
+          .toLocaleDateString("fr-CA")
           .toLowerCase()
           .includes(filter.toLowerCase()) ||
         facture.etat.toString().toLowerCase().includes(filter.toLowerCase()) ||
         facture.categorie
           .toString()
           .toLowerCase()
+          .includes(filter.toLowerCase());
+
+      // Sub_article designations filtering
+      const matchSubArticleDesignations = facture.articles.some((article) =>
+        article.sub_article[0].designation
+          .toString()
+          .toLowerCase()
           .includes(filter.toLowerCase())
-    );
+      );
+
+      return matchMainProperties || matchSubArticleDesignations;
+    });
   }, [factures, filter]);
 
   /*  const excelData = filteredFactures.map((facture) => [

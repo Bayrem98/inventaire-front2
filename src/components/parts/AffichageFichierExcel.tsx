@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { Input, Table } from "reactstrap";
 
-const ExcelTable = ({
+const AffichageFichierExcel: React.FC<{ excelData: any[][] }> = ({
   excelData,
-  onCellChange,
-}: {
-  excelData: any[][];
-  onCellChange: (rowIndex: number, columnIndex: number, newValue: any) => void;
 }) => {
   const [filterValue, setFilterValue] = useState("");
 
@@ -25,13 +21,7 @@ const ExcelTable = ({
       {rowData.map((cellData: any, cellIndex: number) => {
         return (
           <td key={`cell-${cellIndex}`} style={{ fontSize: 12, padding: 1 }}>
-            <input
-              type="text"
-              value={cellData}
-              onChange={(e) =>
-                onCellChange(rowIndex, cellIndex, e.target.value)
-              }
-            />
+            {cellData}
           </td>
         );
       })}
@@ -56,7 +46,7 @@ const ExcelTable = ({
         placeholder="Filtrer..."
       />
       <br />
-      <div style={{ maxHeight: "630px",overflow: "auto" }}>
+      <div style={{ maxHeight: "690px", overflow: "auto" }}>
         <Table bordered hover responsive>
           <thead
             style={{ textAlign: "center", fontSize: 10, fontWeight: "bold" }}
@@ -74,4 +64,4 @@ const ExcelTable = ({
   );
 };
 
-export default ExcelTable;
+export default AffichageFichierExcel;

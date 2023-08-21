@@ -21,10 +21,16 @@ const Navbar: React.FC = () => {
               <a href="/facture">Factures</a>
             </li>
             <li>
+              <a href="/articles">Articles</a>
+            </li>
+            <li>
+              <a href="/inventaire">Inventaire</a>
+            </li>
+            <li>
               <a href="/users">Ajouter Utilisateur</a>
             </li>
             <li onClick={logout}>
-              <a style={{ paddingLeft: 565 }} href="/">
+              <a style={{ paddingLeft: 173 }} href="/">
                 Déconnexion
               </a>
             </li>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Article from "../../../@types/Article";
 import { Button, Table } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
@@ -27,7 +26,10 @@ const ArticlesTable = (props: Props) => {
 
   return (
     <>
-      <div className="d-flex justify-content-between" style={{paddingTop: 80}}>
+      <div
+        className="d-flex justify-content-between"
+        style={{ paddingTop: 80 }}
+      >
         <h1>Facture-Detailes</h1>
       </div>
       <img
@@ -51,7 +53,7 @@ const ArticlesTable = (props: Props) => {
           </tr>
         </thead>
         <tbody>
-          {articles.length > 0 ? (
+          {articles.length ? (
             articles.map((article: any, index: number) => (
               <tr
                 key={`${article._id}-${index}`}
